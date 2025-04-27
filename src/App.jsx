@@ -27,7 +27,7 @@ const info = [
   {
     name: "Samsung Galaxy S7",
     price: "599.99",
-    image: "./phone-3.png",
+    image: "./phone-4.png",
     id: 4,
     amount: 1,
   },
@@ -47,11 +47,18 @@ function App() {
         <div class="cart-icon-cont">
           <ion-icon name="cart" class="cart-icon"></ion-icon>
         </div>
-        <div class="cart-number">{products.length}</div>
+        <div class="cart-number">
+          {products.reduce((acc, cur) => {
+            return acc + cur.amount;
+          }, 0)}
+          {/* pitaj da li treba staviti amount i set amount u state */}
+        </div>
       </nav>
 
       <section class="cart">
-        <header>YOUR BAG</header>
+        <header>
+          <h3>YOUR BAG</h3>
+        </header>
 
         <div class="products">
           {products.map((product) => (
@@ -69,7 +76,7 @@ function App() {
 
         <footer>
           <div class="total-price-cont">
-            <span>Total</span> <span class="total-price">${totalPrice}</span>
+            <h4>Total</h4> <span class="total-price">$ {totalPrice}</span>
           </div>
           <button class="clear-btn" onClick={() => setProducts([])}>
             Clear All

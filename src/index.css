@@ -72,19 +72,20 @@ h1 {
 
 .cart {
   width: 700px;
-  background-color: lightpink;
+  /* background-color: lightpink; */
   margin: 20px auto;
 }
 
 header {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid rgb(176, 176, 176);
+  padding: 10px 20px;
   padding: 10px 20px;
 }
 
 footer {
   display: flex;
   flex-direction: column;
-  border-top: 2px solid red;
+  border-top: 2px solid rgb(176, 176, 176);
   padding: 10px 20px;
 }
 
@@ -106,6 +107,11 @@ footer {
 .clear-btn {
   align-self: center;
   width: 150px;
+  background-color: var(--primary-200);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--primary-500);
 }
 
 article {
@@ -122,6 +128,13 @@ article {
   display: flex;
   flex-direction: column;
   align-items: start;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--primary-500);
+  font-weight: 600;
 }
 
 .product-img {
