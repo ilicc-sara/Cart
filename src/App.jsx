@@ -52,6 +52,7 @@ function App() {
               price={product.price}
               image={product.image}
               id={product.id}
+              setProducts={setProducts}
             />
           ))}
         </div>
@@ -60,7 +61,9 @@ function App() {
           <div class="total-price-cont">
             <span>Total</span> <span class="total-price">4444</span>
           </div>
-          <button class="clear-btn">Clear All</button>
+          <button class="clear-btn" onClick={() => setProducts([])}>
+            Clear All
+          </button>
         </footer>
       </section>
     </>

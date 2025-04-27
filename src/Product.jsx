@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Product(props) {
-  const { name, price, id, image } = props;
+  const { name, price, id, image, setProducts } = props;
+
+  const [amount, setAmount] = useState(1);
+
+  function incrementCount() {
+    setAmount((prevNum) => prevNum + 1);
+  }
+
+  function decrementCount() {
+    setAmount((prevNum) => prevNum - 1);
+    if (amount === 1) {
+      setProducts((previous) =>
+        previous.filter((product) => product.id !== id)
+      );
+    }
+  }
+
   return (
     <article>
       <div class="product-information">
@@ -10,14 +26,31 @@ function Product(props) {
         <div class="product-info">
           <h5 class="product-name">{name}</h5>
           <p class="product-price">${price}</p>
-          <button class="remove-btn">remove</button>
+          <button
+            class="remove-btn"
+            onClick={() =>
+              setProducts((previous) =>
+                previous.filter((product) => product.id !== id)
+              )
+            }
+          >
+            remove
+          </button>
         </div>
       </div>
 
       <div class="amount-cont">
-        <ion-icon name="chevron-up" class="arrow-icon up"></ion-icon>
-        <span class="product-amount">1</span>
-        <ion-icon name="chevron-down" class="arrow-icon down"></ion-icon>
+        <ion-icon
+          name="chevron-up"
+          class="arrow-icon up"
+          onClick={() => incrementCount()}
+        ></ion-icon>
+        <span class="product-amount">{amount}</span>
+        <ion-icon
+          name="chevron-down"
+          class="arrow-icon down"
+          onClick={() => decrementCount()}
+        ></ion-icon>
       </div>
     </article>
   );
