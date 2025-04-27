@@ -40,8 +40,6 @@ function App() {
     return acc + Number(cur.price) * cur.amount;
   }, 0);
 
-  // console.log(totalPrice);
-
   return (
     <>
       <nav class="nav">
@@ -49,7 +47,7 @@ function App() {
         <div class="cart-icon-cont">
           <ion-icon name="cart" class="cart-icon"></ion-icon>
         </div>
-        <div class="cart-number">0</div>
+        <div class="cart-number">{products.length}</div>
       </nav>
 
       <section class="cart">
