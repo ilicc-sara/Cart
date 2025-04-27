@@ -18,6 +18,12 @@ function Product(props) {
     }
   }
 
+  // setProducts((prev) => {
+  //   return prev.map((product) => {
+  //     return product.id === id ? { ...product, amount: amount } : product;
+  //   });
+  // });
+
   return (
     <article>
       <div class="product-information">

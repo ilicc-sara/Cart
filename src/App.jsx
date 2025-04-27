@@ -8,29 +8,40 @@ const info = [
     price: "399.99",
     image: "./phone-1.png",
     id: 1,
+    amount: 1,
   },
   {
     name: "Google Pixel",
     price: "499.99",
     image: "./phone-2.png",
     id: 2,
+    amount: 1,
   },
   {
     name: "Xiaomi Redmi Note 2",
     price: "699.99",
     image: "./phone-3.png",
     id: 3,
+    amount: 1,
   },
   {
     name: "Samsung Galaxy S7",
     price: "599.99",
     image: "./phone-3.png",
     id: 4,
+    amount: 1,
   },
 ];
 
 function App() {
   const [products, setProducts] = useState(info);
+
+  const totalPrice = products.reduce((acc, cur) => {
+    return acc + Number(cur.price) * cur.amount;
+  }, 0);
+
+  // console.log(totalPrice);
+
   return (
     <>
       <nav class="nav">
@@ -52,6 +63,7 @@ function App() {
               price={product.price}
               image={product.image}
               id={product.id}
+              amount={product.amount}
               setProducts={setProducts}
             />
           ))}
@@ -59,7 +71,7 @@ function App() {
 
         <footer>
           <div class="total-price-cont">
-            <span>Total</span> <span class="total-price">4444</span>
+            <span>Total</span> <span class="total-price">${totalPrice}</span>
           </div>
           <button class="clear-btn" onClick={() => setProducts([])}>
             Clear All
