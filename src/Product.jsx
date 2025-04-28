@@ -3,14 +3,6 @@ import React, { useState } from "react";
 function Product(props) {
   const { name, price, id, image, setProducts, amount } = props;
 
-  // const [productAmount, setAmount] = useState(1);
-
-  // setProducts((prev) => {
-  //   return prev.map((product) => {
-  //     product.id === id ? { ...product, amount: productAmount } : product;
-  //   });
-  // });
-
   function increaseAmount(id) {
     setProducts((previous) =>
       previous.map((product) =>

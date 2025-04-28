@@ -90,37 +90,3 @@ function App() {
 }
 
 export default App;
-
-const saraInfo = [
-  {
-    name: "Sara",
-    age: 24,
-    id: 1,
-  },
-  {
-    name: "Novica",
-    age: 62,
-    id: 2,
-  },
-  {
-    name: " Ana",
-    age: 53,
-    id: 3,
-  },
-  {
-    name: "Irina",
-    age: 22,
-    id: 4,
-  },
-  {
-    name: "Justin",
-    age: 14,
-    id: 5,
-  },
-];
-
-const saraInfoChanged = saraInfo.map((person) =>
-  person.id === 5 ? { ...person, age: person.age + 1 } : person
-);
-
-console.log(saraInfoChanged);
