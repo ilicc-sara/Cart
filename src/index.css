@@ -143,6 +143,11 @@ article {
   color: var(--primary-500);
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.remove-btn:hover {
+  color: var(--primary-600);
 }
 
 .product-img {
@@ -162,4 +167,10 @@ article {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  color: var(--primary-400);
+  transition: all 0.3s;
+}
+
+.arrow-icon:hover {
+  color: var(--primary-600);
 }
