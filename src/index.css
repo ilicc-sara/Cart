@@ -112,6 +112,13 @@ footer {
   padding: 10px;
   border-radius: 10px;
   color: var(--primary-500);
+  transition: all 0.3s;
+}
+
+.clear-btn:hover {
+  cursor: pointer;
+  background-color: #282566;
+  color: #a29dff;
 }
 
 article {
@@ -135,6 +142,7 @@ article {
   border: none;
   color: var(--primary-500);
   font-weight: 600;
+  cursor: pointer;
 }
 
 .product-img {

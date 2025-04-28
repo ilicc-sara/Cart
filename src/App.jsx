@@ -40,28 +40,6 @@ function App() {
     return acc + Number(cur.price) * cur.amount;
   }, 0);
 
-  function increaseAmount(id) {
-    // setAmount((prevNum) => prevNum + 1);
-    setProducts((previous) =>
-      previous.map((product) =>
-        product.id === id ? { ...product, amount: product.amount + 1 } : product
-      )
-    );
-  }
-
-  function decreseAmount(id) {
-    setProducts((previous) =>
-      previous.map((product) =>
-        product.id === id ? { ...product, amount: product.amount - 1 } : product
-      )
-    );
-    if (productAmount === 1) {
-      setProducts((previous) =>
-        previous.filter((product) => product.id !== id)
-      );
-    }
-  }
-
   return (
     <>
       <nav class="nav">
@@ -91,8 +69,8 @@ function App() {
               id={product.id}
               amount={product.amount}
               setProducts={setProducts}
-              increaseAmount={increaseAmount}
-              decreseAmount={decreseAmount}
+              // increaseAmount={increaseAmount}
+              // decreseAmount={decreseAmount}
             />
           ))}
         </div>

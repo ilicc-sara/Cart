@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 
 function Product(props) {
-  const {
-    name,
-    price,
-    id,
-    image,
-    setProducts,
-    amount,
-    increaseAmount,
-    decreseAmount,
-  } = props;
+  const { name, price, id, image, setProducts, amount } = props;
 
   // const [productAmount, setAmount] = useState(1);
 
@@ -20,6 +11,27 @@ function Product(props) {
   //   });
   // });
 
+  function increaseAmount(id) {
+    setProducts((previous) =>
+      previous.map((product) =>
+        product.id === id ? { ...product, amount: product.amount + 1 } : product
+      )
+    );
+  }
+
+  function decreseAmount(id) {
+    setProducts((previous) =>
+      previous.map((product) =>
+        product.id === id ? { ...product, amount: product.amount - 1 } : product
+      )
+    );
+    // Zbog ovog koda dole sam morala staviti funkcije ovde
+    if (amount === 1) {
+      setProducts((previous) =>
+        previous.filter((product) => product.id !== id)
+      );
+    }
+  }
   return (
     <article>
       <div class="product-information">
