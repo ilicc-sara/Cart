@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 
 function Product(props) {
-  const { name, price, id, image, setProducts, amount } = props;
+  const {
+    name,
+    price,
+    id,
+    image,
+    setProducts,
+    amount,
+    increaseAmount,
+    decreseAmount,
+  } = props;
 
   function increaseAmount(id) {
     setProducts((previous) =>
