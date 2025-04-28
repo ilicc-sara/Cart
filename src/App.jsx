@@ -40,6 +40,28 @@ function App() {
     return acc + Number(cur.price) * cur.amount;
   }, 0);
 
+  function increaseAmount(id) {
+    // setAmount((prevNum) => prevNum + 1);
+    setProducts((previous) =>
+      previous.map((product) =>
+        product.id === id ? { ...product, amount: product.amount + 1 } : product
+      )
+    );
+  }
+
+  function decreseAmount(id) {
+    setProducts((previous) =>
+      previous.map((product) =>
+        product.id === id ? { ...product, amount: product.amount - 1 } : product
+      )
+    );
+    if (productAmount === 1) {
+      setProducts((previous) =>
+        previous.filter((product) => product.id !== id)
+      );
+    }
+  }
+
   return (
     <>
       <nav class="nav">
@@ -51,7 +73,6 @@ function App() {
           {products.reduce((acc, cur) => {
             return acc + cur.amount;
           }, 0)}
-          {/* pitaj da li treba staviti amount i set amount u state */}
         </div>
       </nav>
 
@@ -70,13 +91,16 @@ function App() {
               id={product.id}
               amount={product.amount}
               setProducts={setProducts}
+              increaseAmount={increaseAmount}
+              decreseAmount={decreseAmount}
             />
           ))}
         </div>
 
         <footer>
           <div class="total-price-cont">
-            <h4>Total</h4> <span class="total-price">$ {totalPrice}</span>
+            <h4>Total</h4>{" "}
+            <span class="total-price">$ {totalPrice.toFixed(2)}</span>
           </div>
           <button class="clear-btn" onClick={() => setProducts([])}>
             Clear All
@@ -88,3 +112,37 @@ function App() {
 }
 
 export default App;
+
+const saraInfo = [
+  {
+    name: "Sara",
+    age: 24,
+    id: 1,
+  },
+  {
+    name: "Novica",
+    age: 62,
+    id: 2,
+  },
+  {
+    name: " Ana",
+    age: 53,
+    id: 3,
+  },
+  {
+    name: "Irina",
+    age: 22,
+    id: 4,
+  },
+  {
+    name: "Justin",
+    age: 14,
+    id: 5,
+  },
+];
+
+const saraInfoChanged = saraInfo.map((person) =>
+  person.id === 5 ? { ...person, age: person.age + 1 } : person
+);
+
+console.log(saraInfoChanged);

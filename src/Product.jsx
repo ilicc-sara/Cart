@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 
 function Product(props) {
-  const { name, price, id, image, setProducts, amount } = props;
+  const {
+    name,
+    price,
+    id,
+    image,
+    setProducts,
+    amount,
+    increaseAmount,
+    decreseAmount,
+  } = props;
 
-  const [productAmount, setAmount] = useState(1);
-
-  function incrementCount() {
-    setAmount((prevNum) => prevNum + 1);
-  }
-
-  function decrementCount() {
-    setAmount((prevNum) => prevNum - 1);
-    if (productAmount === 1) {
-      setProducts((previous) =>
-        previous.filter((product) => product.id !== id)
-      );
-    }
-  }
+  // const [productAmount, setAmount] = useState(1);
 
   // setProducts((prev) => {
   //   return prev.map((product) => {
@@ -49,13 +45,13 @@ function Product(props) {
         <ion-icon
           name="chevron-up"
           class="arrow-icon up"
-          onClick={() => incrementCount()}
+          onClick={() => increaseAmount(id)}
         ></ion-icon>
-        <span class="product-amount">{productAmount}</span>
+        <span class="product-amount">{amount}</span>
         <ion-icon
           name="chevron-down"
           class="arrow-icon down"
-          onClick={() => decrementCount()}
+          onClick={() => decreseAmount(id)}
         ></ion-icon>
       </div>
     </article>
