@@ -42,24 +42,24 @@ function App() {
 
   return (
     <>
-      <nav class="nav">
+      <nav className="nav">
         <h2>Use Reducer</h2>
-        <div class="cart-icon-cont">
-          <ion-icon name="cart" class="cart-icon"></ion-icon>
+        <div className="cart-icon-cont">
+          <ion-icon name="cart" className="cart-icon"></ion-icon>
         </div>
-        <div class="cart-number">
+        <div className="cart-number">
           {products.reduce((acc, cur) => {
             return acc + cur.amount;
           }, 0)}
         </div>
       </nav>
 
-      <section class="cart">
+      <section className="cart">
         <header>
           <h3>YOUR BAG</h3>
         </header>
 
-        <div class="products">
+        <div className="products">
           {products.map((product) => (
             <Product
               key={product.id}
@@ -75,15 +75,18 @@ function App() {
           ))}
         </div>
 
-        <footer>
-          <div class="total-price-cont">
+        <footer className={`${products.length === 0 ? "hidden" : ""}`}>
+          <div className="total-price-cont">
             <h4>Total</h4>{" "}
-            <span class="total-price">$ {totalPrice.toFixed(2)}</span>
+            <span className="total-price">$ {`${totalPrice.toFixed(2)}`}</span>
           </div>
-          <button class="clear-btn" onClick={() => setProducts([])}>
+          <button className="clear-btn" onClick={() => setProducts([])}>
             Clear All
           </button>
         </footer>
+        <h3 className={`${products.length === 0 ? "" : "hidden"}`}>
+          Your Bag Is Empty...
+        </h3>
       </section>
     </>
   );

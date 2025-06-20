@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 
 function Product(props) {
-  const {
-    name,
-    price,
-    id,
-    image,
-    setProducts,
-    amount,
-    increaseAmount,
-    decreseAmount,
-  } = props;
+  const { name, price, id, image, setProducts, amount } = props;
 
   function increaseAmount(id) {
     setProducts((previous) =>
@@ -35,14 +26,14 @@ function Product(props) {
   }
   return (
     <article>
-      <div class="product-information">
-        <img src={image} class="product-img" />
+      <div className="product-information">
+        <img src={image} className="product-img" />
 
-        <div class="product-info">
-          <h5 class="product-name">{name}</h5>
-          <p class="product-price">${price}</p>
+        <div className="product-info">
+          <h5 className="product-name">{name}</h5>
+          <p className="product-price">${price}</p>
           <button
-            class="remove-btn"
+            className="remove-btn"
             onClick={() =>
               setProducts((previous) =>
                 previous.filter((product) => product.id !== id)
@@ -54,16 +45,16 @@ function Product(props) {
         </div>
       </div>
 
-      <div class="amount-cont">
+      <div className="amount-cont">
         <ion-icon
           name="chevron-up"
-          class="arrow-icon up"
+          className="arrow-icon up"
           onClick={() => increaseAmount(id)}
         ></ion-icon>
-        <span class="product-amount">{amount}</span>
+        <span className="product-amount">{amount}</span>
         <ion-icon
           name="chevron-down"
-          class="arrow-icon down"
+          className="arrow-icon down"
           onClick={() => decreseAmount(id)}
         ></ion-icon>
       </div>

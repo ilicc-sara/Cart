@@ -178,3 +178,7 @@ article {
 .arrow-icon:hover {
   color: var(--primary-600);
 }
+
+.hidden {
+  display: none;
+}
