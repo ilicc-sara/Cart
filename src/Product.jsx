@@ -17,7 +17,7 @@ function Product(props) {
         product.id === id ? { ...product, amount: product.amount - 1 } : product
       )
     );
-    // Zbog ovog koda dole sam morala staviti funkcije ovde
+
     if (amount === 1) {
       setProducts((previous) =>
         previous.filter((product) => product.id !== id)
