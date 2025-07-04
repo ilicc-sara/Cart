@@ -60,18 +60,8 @@ function App() {
         </header>
 
         <div className="products">
-          {products.map((product) => (
-            <Product
-              key={product.id}
-              name={product.name}
-              price={product.price}
-              image={product.image}
-              id={product.id}
-              amount={product.amount}
-              setProducts={setProducts}
-              // increaseAmount={increaseAmount}
-              // decreseAmount={decreseAmount}
-            />
+          {products.map((product, index) => (
+            <Product key={index} {...product} setProducts={setProducts} />
           ))}
         </div>
 
